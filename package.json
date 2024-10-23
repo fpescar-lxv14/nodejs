@@ -1,0 +1,35 @@
+{
+  "name": "node-server",
+  "version": "1.0.0",
+  "description": "Proyecto de servidor con NodeJS utilizando los modulos integrados, tales como fs, http, path, url. Capas de procesar solicitudes de paginas dinamicas y estaticas",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node .",
+    "dev": "node --watch .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "git push --all && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpescar-lxv14/nodejs.git"
+  },  
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    
+  },
+  "keywords": [
+    "Proyecto NodeJS",
+    "Servidor Backend",
+    "Peticiones HTTP",
+    "Desarrollo FullStack"
+  ],
+  "author": "Cristian Racedo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fpescar-lxv14/nodejs/issues"
+  },
+  "homepage": "https://github.com/fpescar-lxv14/nodejs#readme"
+}
