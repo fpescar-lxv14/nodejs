@@ -1,0 +1,9 @@
+# Dependencias
+node_modules
+# Compilacion y registro
+dist/
+logs/
+*.log
+# Entorno y Gestion
+.env*
+*lock.json
