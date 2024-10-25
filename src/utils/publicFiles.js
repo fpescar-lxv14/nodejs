@@ -1,5 +1,5 @@
 const PUBLIC_FILES = {
-    "index.html": /^\/$|index|home/,
+    "index.html": /^\/$|index$|home/,
     "styles/default.css": /styles|default/,
     "scripts/index.js": /script|main|app/,
     "assets/data.json": /request|api$/,
