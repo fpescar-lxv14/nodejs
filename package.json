@@ -16,6 +16,10 @@
   },
   "dependencies": {
     "express": "^4.21.1"
+  }, 
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "morgan": "^1.10.0"
   },
   "keywords": [
     "Proyecto NodeJS",
