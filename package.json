@@ -15,8 +15,9 @@
     "url": "git+https://github.com/fpescar-lxv14/nodejs.git"
   },
   "dependencies": {
-    "express": "^4.21.1"
-  }, 
+    "express": "^4.21.1",
+    "pug": "^3.0.3"
+  },
   "devDependencies": {
     "dotenv": "^16.4.5",
     "morgan": "^1.10.0"
