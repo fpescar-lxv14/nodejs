@@ -14,8 +14,8 @@ const {
     PORT=3000
 } = process.env;
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }))
+app.use(express.json()); // Solicitudes FormData
+app.use(express.urlencoded({ extended: false })) // Solicitudes x-www-form-urlencoded
 // Implementacion de Rutas
 app.use("/users", usersRouter);
 app.use(express.static('public'));

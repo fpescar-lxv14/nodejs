@@ -1,19 +1,20 @@
-const usersModel = [
+import userData from "../data/users.json" assert { "type": "json" };
+const usersModel = userData ?? [
     {
         id: 1,
-        user: "cristian",
+        username: "cristian",
         email: "cristiandracedo@hotmail.com"
     },
     
     {
         id: 2,
-        user: "c215714n",
+        username: "c215714n",
         email: "cristiandracedo@gmail.com"
     },
     
     {
         id: 3,
-        user: "d477714n",
+        username: "d477714n",
         email: "cristiandracedo@ymail.com"
     }
 ];
