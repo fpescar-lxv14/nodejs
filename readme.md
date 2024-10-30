@@ -24,3 +24,5 @@ El objetivo principal de esta herramienta es ejecutar las aplicaciones desarroll
 * Patrones de Diseño
     * [DAO](./docs/dao.md)
     * [DTO](./docs/dto.md)
+    * [MRC](./docs/mrc.md)
+    * [MVC](./docs/mvc.md)
