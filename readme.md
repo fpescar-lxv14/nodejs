@@ -21,3 +21,6 @@ El objetivo principal de esta herramienta es ejecutar las aplicaciones desarroll
     * [url](./docs/core.md#url)
     * [path](./docs/core.md#path)
     * [file system](./docs/core.md#fs)
+* Patrones de Diseño
+    * [DAO](./docs/dao.md)
+    * [DTO](./docs/dto.md)
