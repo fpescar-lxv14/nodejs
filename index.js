@@ -14,6 +14,7 @@ const {
     PORT=3000
 } = process.env;
 const app = express();
+app.set("view engine", "ejs");
 app.use(express.json()); // Solicitudes FormData
 app.use(express.urlencoded({ extended: false })) // Solicitudes x-www-form-urlencoded
 // Implementacion de Rutas
