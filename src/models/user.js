@@ -1,21 +1,32 @@
-import userData from "../data/users.json" assert { "type": "json" };
-const usersModel = userData ?? [
-    {
-        id: 1,
-        username: "cristian",
-        email: "cristiandracedo@hotmail.com"
+import mongoose from "mongoose";
+const userSchema = mongoose.Schema({
+    username: {
+        type: String,
+        required: true,
+        unique: true,
     },
-    
-    {
-        id: 2,
-        username: "c215714n",
-        email: "cristiandracedo@gmail.com"
+    email: {
+        type: String,
+        required: true,
+        unique: true,
     },
-    
-    {
-        id: 3,
-        username: "d477714n",
-        email: "cristiandracedo@ymail.com"
+    password: {
+        type: String,
+        required: true
+    },
+    userData: {
+        type: Object,
+        properties: {
+            first_name: String,
+            last_name: String,
+            birth_date: Date,
+            id_type: String,
+            id_number: String,
+            country: String,
+            nationality: String,
+        }
     }
-];
+})
+const usersModel = mongoose.model('users', userSchema)
+
 export default usersModel;
