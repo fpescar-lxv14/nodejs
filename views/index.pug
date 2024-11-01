@@ -1,0 +1,10 @@
+html
+    include partials/head
+    body
+        include partials/nav
+        if !error
+            include partials/header
+            include layouts/main
+        else 
+            include layouts/error
+        include partials/footer

@@ -1,0 +1,10 @@
+nav.navbar.navbar-dark.bg-dark.bg-gradient.sticky-top.px-3
+    a.navbar-brand=title
+    button.navbar-toggler.navbar-toggler-icon(
+        data-bs-target="ul.navbar-nav"
+        data-bs-toggle="collapse"
+    )
+    ul.navbar-nav.navbar-collapse.collapse
+        each link in menu
+            li
+                a.nav-link(href=link.url)= link.text
