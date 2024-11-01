@@ -1,0 +1,24 @@
+{
+    "menu": [
+        {"url": "/home", "text": "inicio"},
+        {"url": "/users", "text": "contactos"},
+        {"url": "/error", "text": "error"}
+    ],
+    "social": [
+        {
+            "url": "https://linkedin.com", 
+            "color": "primary",
+            "text": "linkedin" 
+        },
+        {
+            "url": "https://x.com", 
+            "color": "dark",
+            "text": "twitter" 
+        },
+        {
+            "url": "https://api.whatsapp.com", 
+            "color": "success",
+            "text": "whatsapp"
+        }
+    ]
+}

@@ -1,4 +1,4 @@
-import userData from "../data/users.json" assert { "type": "json" };
+import userData from "../data/users.json" with { "type": "json" };
 const usersModel = userData ?? [
     {
         id: 1,
