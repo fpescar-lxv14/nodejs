@@ -18,8 +18,6 @@ const {
 } = process.env;
 const app = express();
 app.engine("hbs", engine({
-    layoutsDir: resolve("views/layouts"),
-    partialsDir: resolve("views/partials"),
     defaultLayout: resolve("views/index.hbs"),
     extname: "hbs"
 }))
