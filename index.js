@@ -24,6 +24,7 @@ app.get("/home", (_, res) => {
     res.render('index', {
         title: APP, ...appLinks,
         description: `${DESCRIPTION} (version: ${VERSION})`,
+        error: null,
     })
 })
 app.get("*", (_,res) => res.render("index", {

@@ -1,0 +1,17 @@
+<nav class="navbar navbar-dark bg-secondary bg-gradient | sticky-top px-3">
+    <a href="#" class="navbar-brand"><%=title%></a>
+    <button class="navbar-toggler navbar-toggler-icon" 
+        data-bs-target="ul.navbar-nav" 
+        data-bs-toggle="collapse">
+    </button>
+    <ul class="navbar-nav navbar-collapse collapse">
+        <% menu.forEach((link) => { %>
+        <li>
+            <a class="nav-link" 
+                href="<%=link.url%>"> 
+                <%=link.text %> 
+            </a>
+        </li>
+        <% }) %>
+    </ul>
+</nav>

@@ -1,0 +1,13 @@
+<footer class="sticky-bottom">
+    <div class="d-flex justify-content-center flex-wrap gap-2">
+    <% social.forEach((link) => { %>
+        <a class="btn btn-outline-<%=link.color%>"
+            href="<%=link.url%>">
+            <%=link.text%>
+        </a>
+    <% }) %>
+    </div>
+    <p>todos los derechos reservados</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="scripts/index.js"></script>
