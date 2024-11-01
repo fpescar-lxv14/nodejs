@@ -29,12 +29,12 @@ app.use(express.urlencoded({ extended: false })) // Solicitudes x-www-form-urlen
 // Implementacion de Rutas
 app.use("/users", usersRouter);
 app.get("/home", (_, res) => {
-    res.render('index', {
+    res.render('layouts/main', {
         title: APP, ...appLinks,
-        description: `${DESCRIPTION} (version: ${VERSION})`,
+        description: `${DESCRIPTION} (version: ${VERSION})`
     })
 })
-app.get("*", (_,res) => res.render("index", {
+app.get("*", (_,res) => res.render("layouts/error", {
     title: APP, ...appLinks,
     error: {
         title: "ERROR 404",
