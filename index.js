@@ -3,19 +3,19 @@ import express from "express";
 // Dependencias de Desarrollo
 import { configDotenv } from "dotenv";
 // Importacion de Modulos
+import dbConn from "./src/config/db.js";
 import usersRouter from "./src/routes/user.js";
 // Configuracion
 configDotenv();
 // Declaraciones
-const { 
-    APP="Mi Aplicacion", 
-    DESCRIPTION="inserte descripcion aqui",
-    VERSION:version="v0.0.0-beta",
-    PORT=3000
+const {
+    PORT=3000,
+    URI="mongodb://localhost:27017/blockblister",
 } = process.env;
+dbConn(URI);
 const app = express();
-app.use(express.json()); // Solicitudes FormData
-app.use(express.urlencoded({ extended: false })) // Solicitudes x-www-form-urlencoded
+app.use(express.json()); // FormData
+app.use(express.urlencoded({ extended: false })) // x-www-form-urlencoded
 // Implementacion de Rutas
 app.use("/users", usersRouter);
 app.use(express.static('public'));
