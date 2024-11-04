@@ -26,3 +26,7 @@ El objetivo principal de esta herramienta es ejecutar las aplicaciones desarroll
     * [DTO](./docs/dto.md)
     * [MRC](./docs/mrc.md)
     * [MVC](./docs/mvc.md)
+* Motores de Plantillas
+    * [Pug](./docs/pug.md)
+    * [EJS](./docs/ejs.md)
+    * [HandleBars](./docs/hbs.md)
