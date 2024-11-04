@@ -1,58 +1,42 @@
 import usersModel from "../models/user.js";
 
-export const createUser = (req, res) => { 
-    const { user, email } = req.body
-    const data = usersModel.find(usr => usr.username === user || usr.email === email)
-    if (!data){
-        const id = usersModel[usersModel.length - 1].id + 1 ?? 1
-        usersModel.push({id, ...req.body})
-        res.json({
-            message: "usuario creado exitosamente",
-            data: req.body ?? "no hay datos"
-    })}
-    else res.json({
-        title: "error al crear un usuario",
-        message: "ya existe un usuario con ese nombre o correo"
-    })
+export const createUser = async(req, res) => { 
+    try{
+        const newUser = new usersModel(req.body)
+        const status = await newUser.save()
+        res.json({ message: status?.acknowledged ? "usuario creado" : "no se pudo crear el usuario"})
+    }
+    catch (err){ res.json(err) }
 }
-export const getUsers = (req, res) => { 
-    res.json(usersModel)
+export const getUsers = async (req, res) => { 
+    try{
+        const results = await usersModel.find()
+        if (results.length) res.status(200).json(results)
+        else res.status(404).json({ message: "no se encontraron resultados" })
+    } 
+    catch (err){ res.json(err) }
 }
 export const getUserById = (req, res) => { 
-    const data = usersModel.find(usr => usr.id === Number(req.params.id) || usr.username === req.params.id) ?? { message: "usuario no encontrado" }
-    res.json(data)
+    const { id } = req.params;
+    usersModel.findOne(filter(id))
+    .then(data => res.json(data ?? { message: "no se encontraron resultados" }))
+    .catch(err => res.json(err))
 }
 export const updateUser = (req, res) => {
-    const { id } = req.params
-    let idx;
-    usersModel.map((usr,i) => {
-        if (usr.id === Number(id) || usr.username === id) idx = i
-    })
-    console.log(idx);
-    if (!isNaN(idx)){
-        const prev = usersModel[idx]
-        usersModel[idx] = {...prev, ...req.body}
-        res.json({
-            message: "se actualizaron los datos del usuario " + id
-        })
-    }
-    else res.json({
-        message: "no se pudieron modificar los datos del usuario " + id
-    })
+    const { params:{id}, body:{userData}} = req
+    usersModel.updateOne(filter(id),{ $set: userData })
+    .then((status) => res.json({
+        message: status?.modifiedCount ? 
+        "datos actualizados" : "no se pudo realizar la operacion"
+    }))
 }
-export const deleteUser = (req, res) => {
-    const { id } = req.params
-    let idx;
-    usersModel.map((usr,i) => {
-        if (usr.id === Number(id) || usr.username === id) idx = i
-    })
-    if (!isNaN(idx)){
-        usersModel.splice(idx, 1);
-        res.json({
-            message: "se ha eliminado al usuario " + id
-        })
+export const deleteUser = async(req, res) => {
+    try{
+        const {id} = req.params;
+        const status = await usersModel.deleteOne(filter(id))
+        const message = status?.deleteCount ? "usuario eliminado" : "no se pudo eliminar la cuenta"
+        res.json(message)
     }
-    else res.json({
-        message: "no se ha podido eliminar al usuario " + id
-    })
+    catch (err){ res.json(err) }
 }
+export const filter = (text) => ({ $or: [{_id:text},{ username:text }] })
