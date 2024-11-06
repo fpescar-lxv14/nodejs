@@ -4,7 +4,9 @@ export const createUser = async (req, res) => {
     try {
         const newUser = new usersModel(req.body);
         const data = await newUser.save();
-        res.json({ message: "cuenta creada exitosamente", data });
+        res.render("layouts/login", { 
+            message: "cuenta creada exitosamente, por favor inicia sesion para continuar"
+        });
     } catch (err) {
         res.status(500).json({ error: "Error al crear usuario", details: err.message });
     }
