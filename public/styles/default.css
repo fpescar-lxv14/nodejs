@@ -1,0 +1,81 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+body,
+h1,
+h2,
+article p {
+    margin: 0;
+}
+/* Cabecera */
+header{
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem max(1rem, calc(50vw - 660px));
+    background-color: #eeee;
+}
+h1,
+h2{
+    font-size: 1rem;
+}
+/* Sala de Chat */
+section{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+.self{
+    --bg: #3c6;
+}
+#chat-room article{
+    position: relative;
+    max-width: min(85vw, 420px);
+    border-radius: .25rem;
+    padding: .5rem;
+    background: var(--bg, #ccc) linear-gradient(#eeea, #eee3);
+    z-index: -1;
+}
+#chat-room article::before{
+    content: '';
+    position: absolute;
+    top: calc(100% - .25rem);
+    left: 0;
+    width: 1rem;
+    height: 1rem;
+    background: var(--bg, #ccc) linear-gradient(#eee3, #eee1);
+    clip-path: polygon(0% 0%, 0% 100%, 100% 0%);
+}
+#chat-room .self{
+    margin-left: auto;
+}
+#chat-room .self::before{
+    left: unset;
+    right: 0;
+    rotate: 90deg;
+}
+/* Formularios al Pie */
+footer{
+    position: sticky;
+    bottom: 0;
+}
+form{
+    display: grid;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+input,
+textarea,
+select,
+button{
+    width: 100%;
+    padding: .25rem .5rem;
+    font-size: 1rem;
+}
