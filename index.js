@@ -20,7 +20,7 @@ ws.on("connection", (socket) => {
     // Recepcion de Mensaje (cliente)
     socket.on("message", (data) => {
     // Transmision de Mensaje (clientes)
-        socket.emit("message", data)
+        ws.emit("message", data)
     })
     // Desconexion del Cliente
     socket.on("disconnect", () => console.log("se ha desconectado el cliente "+ socket.id))
