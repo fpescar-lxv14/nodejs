@@ -17,7 +17,8 @@ const chatSchema = Schema({
     },
     type: {
         type: String,
-        pattern: /UNICAST|BROADCAST|MULTICAST/
+        pattern: /UNICAST|BROADCAST|MULTICAST/,
+        default: "BROADCAST",
     },
     to: {
         type: String,
