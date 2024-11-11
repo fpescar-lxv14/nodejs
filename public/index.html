@@ -9,16 +9,28 @@
 <body>
     <header>
         <h1>FPChat</h1>
+        <nav>
+            <ul>
+                <li><a href="#login">Iniciar Sesion</a></li>
+                <li><a href="#signin">Registrarse</a></li>
+                <li><a href="#chat-form">Sala de Chat</a></li>
+            </ul>
+        </nav>
     </header>
     <section id="chat-room">
     </section>
     <footer>
         <form id="chat-form">
             <label for="username">Usuario</label>
-            <input type="text" id="username" name="username">
+            <input type="text" id="username" name="username" disabled>
             <label for="message">Mensaje</label>
-            <textarea id="message" name="message"></textarea>
+            <textarea id="message" name="message" minlength="2" required></textarea>
             <button>Enviar</button>
+        </form>
+        <form id="login">
+            <label for="user">Ingrese su correo o telefono</label>
+            <input id="user" name="user" type="text">
+            <button>Acceder</button>
         </form>
     </footer>
     <script src="/socket.io/socket.io.js"></script>

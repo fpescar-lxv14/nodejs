@@ -66,10 +66,13 @@ footer{
     bottom: 0;
 }
 form{
-    display: grid;
+    display: none;
     max-width: 480px;
     margin: 0 auto;
     padding: 1rem;
+}
+form:target{
+    display: grid;
 }
 input,
 textarea,

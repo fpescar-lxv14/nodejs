@@ -3,6 +3,7 @@ const d = document;
 const socket = io();
 const chatRoom = document.getElementById('chat-room');
 const chatForm = document.getElementById('chat-form');
+const loginForm = document.getElementById('login');
 
 function createMessage({username:u, message:m}){
     const current = chatForm.username.value
@@ -12,11 +13,11 @@ function createMessage({username:u, message:m}){
     })
     chatRoom.appendChild(msg)
 }
+document.addEventListener('submit', (e) => e.preventDefault());
 // Recepcion de Mensaje
-socket.on("message", createMessage)
+socket.on("message", createMessage);
 // Envio de mensaje
 chatForm.addEventListener('submit', (e) => {
-    e.preventDefault()
     const { username, message } = e.target
     socket.emit("message",{
         username: username.value,
@@ -34,7 +35,14 @@ chatForm.message.addEventListener('keyup', (e) => {
     socket.emit("load")
     socket.on('load', (results) => results.length && results.map(createMessage))
     socket.on('userId', (id) => {
-        chatForm.username.value = "user_"+id;
-        chatForm.message.focus()
+        chatForm.username.value = id;
+        window.location = "#chat-form";
+        chatForm.message.focus();
     })
+// Inicio de Sesion
+loginForm.addEventListener('submit', (e) => {
+    const { user } = e.target
+    socket.emit('login', user.value)
+})
+
 })
