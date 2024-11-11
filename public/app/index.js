@@ -4,15 +4,16 @@ const socket = io();
 const chatRoom = document.getElementById('chat-room');
 const chatForm = document.getElementById('chat-form');
 
-// Recepcion de Mensaje
-socket.on("message", ({username:u, message:m}) => {
+function createMessage({username:u, message:m}){
     const current = chatForm.username.value
     const msg = Object.assign(d.createElement('article'), {
         className: current === u ? "self" : "another",
         innerHTML: `<h2>${u}</h2><p>${m}</p>`
     })
     chatRoom.appendChild(msg)
-})
+}
+// Recepcion de Mensaje
+socket.on("message", createMessage)
 // Envio de mensaje
 chatForm.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -31,4 +32,9 @@ chatForm.message.addEventListener('keyup', (e) => {
 })
 // Carga de mensajes previos
     socket.emit("load")
+    socket.on('load', (results) => results.length && results.map(createMessage))
+    socket.on('userId', (id) => {
+        chatForm.username.value = "user_"+id;
+        chatForm.message.focus()
+    })
 })
