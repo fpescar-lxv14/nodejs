@@ -30,3 +30,6 @@ El objetivo principal de esta herramienta es ejecutar las aplicaciones desarroll
     * [Pug](./docs/pug.md)
     * [EJS](./docs/ejs.md)
     * [HandleBars](./docs/hbs.md)
+* Pruebas de Desarrollo
+    * [TDD](./docs/tdd.md)
+    * [BDD](./docs/bdd.md)
