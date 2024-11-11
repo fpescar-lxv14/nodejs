@@ -6,6 +6,7 @@ import { createServer } from "node:http"
 import { Server } from "socket.io"
 // Modulos del Proyecto
 import { dbConn } from "./src/db.config.js";
+import { findUser } from "./src/user.controller.js"
 import { loadChat, saveMessage } from "./src/chat.controller.js";
 
 configDotenv()
@@ -21,6 +22,7 @@ dbConn(URI)
 // Conexion de Clientes
 ws.on("connection", (socket) => {
     console.log("se conecto el cliente " + socket.id);
+    const annon = "user_"+ socket.id
     // Recepcion de Mensaje (cliente)
     socket.on("message", (data) => {
     // Transmision de Mensaje (clientes)
@@ -30,7 +32,11 @@ ws.on("connection", (socket) => {
     socket.on("load", () => {
         loadChat()
         .then((results) => socket.emit("load", results))
-        socket.emit("userId", socket.id)
+        socket.emit("userId", annon)
+    })
+    socket.on('login', (value) => {
+        findUser(value)
+        .then(username => socket.emit('userId', username ?? annon))
     })
     // Desconexion del Cliente
     socket.on("disconnect", () => console.log("se ha desconectado el cliente "+ socket.id))
