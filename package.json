@@ -20,6 +20,7 @@
   "devDependencies": {
     "chai": "*",
     "chai-http": "*",
-    "mocha": "*"
+    "mocha": "*",
+    "supertest": "^7.0.0"
   }
 }
