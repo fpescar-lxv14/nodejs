@@ -1,0 +1,20 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "main": "sum.js",
+  "type": "module",
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*"
+  },
+  "scripts": {
+    "start": "node .",
+    "dev": "node --watch .",
+    "test": "mocha tests/**.js",
+    "tdd": "mocha tests/**.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
