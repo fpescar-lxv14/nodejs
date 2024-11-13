@@ -1,6 +1,11 @@
 import express from "express"
 // import { dbConn } from "./config/db.js"
 
+const {
+    PORT = 3000,
+    URI = "mongodb://localhost:27017",
+} = process.env
+
 export const app = express();
 app.get('/', (req, res) => {
     res.status(200).json({
