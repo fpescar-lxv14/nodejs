@@ -27,6 +27,7 @@ const config = {
         rules: [
             {
                 test: /\.(js|jsx)$/i,
+                exclude: path.resolve("node_modules"),
                 loader: 'babel-loader',
             },
             {
