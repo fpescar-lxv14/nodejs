@@ -33,3 +33,12 @@ El objetivo principal de esta herramienta es ejecutar las aplicaciones desarroll
 * Pruebas de Desarrollo
     * [TDD](./docs/tdd.md)
     * [BDD](./docs/bdd.md)
+* Dependencias de Proyecto
+    * [Express](./docs/express.md)
+    * [Middlewares](./docs/middleware.md)
+    * [Mongoose](./docs/mongoose.md)
+    * [Websocket](./docs/websocket.md)
+* Produccion
+    * [Babel](./docs/babel.md)
+    * [Webpack](./docs/webpack.md)
+    * [TypeScript](./docs/typescript.md)
