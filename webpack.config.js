@@ -8,7 +8,7 @@ const isProduction = process.env.NODE_ENV == 'production';
 const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
 
 const config = {
-    entry: './src/index.js', // Archivo Principal
+    entry: path.resolve('./src/index.js'), // Archivo Principal
     output: { // Configuracion de Compilacion
         path: path.resolve(__dirname, 'dist'),
         filename: "index.js"
