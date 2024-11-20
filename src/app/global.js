@@ -14,18 +14,21 @@ export const config = {
 export const options = ["freeHand", "line", "rect", "circle"]
 export const controls = [
     {
+        tagName: "select",
         id: "shape",
         className: "form-select col-12 col-md",
         innerHTML: options.map(opt => `<option value="${opt}">${opt}</option>`).join(""),
         callback: ({target}) => config.shape = target.value
     },
     {   
+        tagName: "input",
         id: "color",
         className: "form-control-color col-4",
         type: "color",
         callback: ({target}) => config.strokeStyle = target.value
     },
     {   
+        tagName: "input",
         id: "stroke",
         className: "col col-md",
         type: "range",

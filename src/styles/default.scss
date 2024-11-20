@@ -32,17 +32,17 @@ $variants:
     subtle    darken,
     emphasis  lighten,
 ;
+:root{
+    @each $cn, $cv in $colors{
+        --#{$cn}: #{$cv};
+    }
+}
 @each $class, $attr, $ref in $units{
 @for $i from 0 through 10 {
-    .#{$class}-#{$i}{ 
-        #{$attr}: $i * $ref; 
-    }
+    .#{$class}-#{$i}{ #{$attr}: $i * $ref; }
 }}
 @each $prop, $attr in $attributes {
 @each $name, $value in $colors{
-    [class*="#{$name}"]{
-        --#{$name}: #{$value};
-    }
     .#{$prop}-#{$name}{
         #{$attr}: rgb(var(--#{$name}));
     }
