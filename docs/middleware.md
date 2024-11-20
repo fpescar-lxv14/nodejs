@@ -18,7 +18,7 @@ Son funciones que se ejecutan entre la __recepción de una solicitud HTTP__ por 
 
 ### Tipos de Middlewares
 
-1. __Aplicación:__ Se ejecutan para cada solicitud que llega al servidor.
+* __Aplicación:__ Se ejecutan por cada solicitud que llega al servidor.
     ```js
     const express = require('express');
     const app = express();
@@ -27,25 +27,24 @@ Son funciones que se ejecutan entre la __recepción de una solicitud HTTP__ por 
         next();
     });
     ```
-2. __Ruta:__ Vinculados a direcciones específicas.
+* __Ruta:__ Vinculados a direcciones específicas.
     ```js
     const { Router } = require('express');
     const logger = (req, res, next) => {
         console.log(`Ruta solicitada: ${req.url}`);
         next();
     };
-    router.get('/tasks', logger, (req, res) => {
-        res.json({ message: 'Tareas obtenidas' });
+    router.get('/tasks/:id?', logger, (req,res) => {
+        res.send('Tarea/s Obtenida/s')
     });
     module.exports = router;
     ```
-
-3. __Express:__ Proveen funcionalidades comunes para procesar datos del cuerpo de las solicitudes.
+* __Express:__ Proveen funcionalidades comunes para procesar datos del cuerpo de las solicitudes.
     ```js
     app.use(express.json());
     app.use(express.urlencoded());
     ```
-4. __Errores:__ Se encargan de manejar errores en el flujo de la aplicación.
+* __Errores:__ Se encargan de manejar errores en el flujo de la aplicación.
     ```js
     app.use((err, req, res, next) => {
         console.error(err.stack);

@@ -16,13 +16,11 @@ __Transpilador de JavaScript__ que permite utilizar características modernas de
 | __Modularidad__ | Configuraciones personalizables para proyectos específicos |
 | __Integración__ | Funciona con herramientas como Webpack y Rollup |
 
-```js
-// .babelrc
-{
- "presets": ["@babel/preset-env"]
-}
-```
-
-```bash
-npx babel src -out-dir dist
-```
+* __.babelrc__: archivo de configuracion
+    ```js
+    { "presets": ["@babel/preset-env"] }
+    ```
+* __Compilacion__: se puede indicar manualmente del directorio de salida
+    ```bash
+    npx babel src -out-dir dist
+    ```

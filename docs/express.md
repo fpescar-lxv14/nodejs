@@ -10,10 +10,10 @@ Framework minimalista para construir aplicaciones web y APIs con NodeJS rápidas
 
 | Característica | Descripción |
 |-|-|
-| __Simplicidad__ | API ligera y flexible para manejar solicitudes y respuestas HTTP. |
-| __Middlewares__ | Permiten interceptar y procesar solicitudes antes de enviar respuestas. |
-| __Ruteo__ | Soporta rutas dinámicas y controladores de rutas. |
-| __Extensibilidad__ | Integración con otros módulos y herramientas del ecosistema Node.js. |
+| __Simplicidad__ | API ligera y flexible para manejar solicitudes y respuestas HTTP |
+| __Middlewares__ | Permiten interceptar y procesar solicitudes antes de enviar respuestas |
+| __Enrutamiento__ | Soporta rutas dinámicas y controladores de rutas |
+| __Extensibilidad__ | Integración con otros módulos y herramientas del ecosistema NodeJS |
 | __Seguridad__ | Facilita la implementación de medidas como CORS y autenticación. |
 
 ### Implementacion
@@ -22,7 +22,7 @@ Framework minimalista para construir aplicaciones web y APIs con NodeJS rápidas
     ```sh
     npm install express
     ```
-* __Servidor Basico__: Procesa las peticiones HTTP y devuelve un objeto de  respuesta
+* __Servidor Basico__: Procesa las peticiones HTTP y devuelve un objeto de respuesta
     ```js
     const express = require('express');
     const app = express();
@@ -32,8 +32,8 @@ Framework minimalista para construir aplicaciones web y APIs con NodeJS rápidas
 * __Middleware__: Funciones que manejan solicitudes entre el cliente y las rutas del servidor.
     ```js
     app.use((req, res, next) => {
-    console.log('Middleware ejecutado');
-    next();
+        console.log('Middleware ejecutado');
+        next();
     });
     ```
 * __Rutas__: Se pueden gestionar parametros en la url de manera dinamica
