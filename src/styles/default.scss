@@ -1,0 +1,76 @@
+$units: 
+    m       margin          .25rem,
+    o       outline         1px,
+    b       border-width    1px,
+    p       padding         .25rem,
+    fs      font-size       .5rem,
+    fw      font-weight     100,
+    w       width           10vw,
+    h       height          10vh,
+    min-w   min-width       10vw,
+    min-h   min-height      10vh,
+;
+$attributes: 
+    text    color,
+    bg      background-color,
+    b       border-color,
+    o       outline-color,
+    accent  accent-color,
+    td      text-decoration-color,
+    scroll  scrollbar-color,
+;
+$colors: 
+    primary   ( 34,   68,   136 ),
+    secondary ( 204,  51,   100 ),
+    light     ( 238,  238,  238 ),
+    dark      ( 51,   51,   51  ),
+    success   ( 51,   204,  102 ),
+    warning   ( 238,  170,  51  ),
+    danger    ( 204,  51,   51  ),
+;
+$variants: 
+    subtle    darken,
+    emphasis  lighten,
+;
+@each $class, $attr, $ref in $units{
+@for $i from 0 through 10 {
+    .#{$class}-#{$i}{ 
+        #{$attr}: $i * $ref; 
+    }
+}}
+@each $prop, $attr in $attributes {
+@each $name, $value in $colors{
+    [class*="#{$name}"]{
+        --#{$name}: #{$value};
+    }
+    .#{$prop}-#{$name}{
+        #{$attr}: rgb(var(--#{$name}));
+    }
+}}
+@mixin flex($jc: center, $ai: center, $fw: wrap){
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    flex-direction: column;
+    @media screen and (width > 768px){
+        flex-direction: row;
+    }
+    canvas{
+        border: .2rem solid #333;
+        width: 100%;
+    }
+    input,
+    select{
+        padding: .25rem;
+        border: 1px solid #ccc;
+    }
+}
