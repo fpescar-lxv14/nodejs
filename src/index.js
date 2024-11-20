@@ -1,5 +1,5 @@
-import "bootstrap/dist/css/bootstrap.min.css"
-import "./styles/styles.scss";
+// import "bootstrap/dist/css/bootstrap.min.css"
+import "./styles/default.scss";
 import { d, canvas, root } from "./app/global";
 import { Controls } from "./app/controls"
 import { Events } from "./app/events";

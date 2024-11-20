@@ -1,4 +1,4 @@
-import { config, ctx, canvas } from "./global";
+import { config, canvas } from "./global";
 import * as shape from "./shape"
 import { resize, setCoords } from "./utils";
 
